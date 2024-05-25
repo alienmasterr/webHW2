@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy List</title>
+    <link rel="stylesheet" href="buyListStyle.css ">
+</head>
+
+<body>
+    
+    <section class="section1">
+        <div class="productDiv">
+            <form class="prForm" action="/smth">
+                <input type="text" name="productInput" id="addProductInput" placeholder="Назва товару">
+                <button class="tooltip-btn" data-tooltip="Додати товар" id="addButton">Додати</button>
+            </form>
+        </div>
+        <div class="productDiv">
+            <p id="cross">Помідори</p>
+            <span>2</span>
+            <button id="sideButton" class="tooltip-btn" data-tooltip="Товар не куплено">Не куплено</button>
+        </div>
+
+        <div class="productDiv">
+            <p>Печиво</p>
+            <div class="centerContainer">
+                <button class="roundB" id="buttonMinus" data-tooltip="Видалити товар">-</button>
+                <span>2</span>
+                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар">+</button>
+            </div>
+            <div class="sideContainer">
+                <button class="sideButtons" data-tooltip="Товар куплено" class="tooltip-btn">Куплено</button>
+                <button class="sideButtons" id="buttonX" data-tooltip="Скасувати">x</button>
+            </div>
+
+        </div>
+
+        <div class="productDiv">
+            <input type="text" name="inputInside" id="inputInside">
+            <div class="centerContainer">
+                <button class="roundB" id="buttonMinus" data-tooltip="Видалити товар">-</button>
+                <span>2</span>
+                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар">+</button>
+            </div>
+            <div class="sideContainer">
+                <button class="sideButtons" data-tooltip="Товар куплено">Куплено</button>
+                <button class="sideButtons" id="buttonX" data-tooltip="Скасувати">x</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section2" id="secondSection">
+        <div>
+            <h3>Залишилося</h3>
+        </div>
+        <div>
+            <span class="graySpan">Печиво<span class="insideSpan">2</span></span>
+            <span class="graySpan">Сир<span class="insideSpan">1</span></span>
+        </div>
+        <div>
+            <h3>Куплено</h3>
+        </div>
+        <div><span id="crossS" class="graySpan">Помідори<span id="lastSpan" class="insideSpan">2</span></span></div>
+    </section>
+
+    <div class="bage">
+        <h4 id="firstTitle">Buy List</h4>
+        <h4 id="secondTitle">Created by</h4>
+        <!-- <p>Created by:</p> -->
+        <p>Alina Kharchenko</p>
+    </div>
+</body>
+
+</html>

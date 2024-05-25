@@ -1,0 +1,313 @@
+body {
+    background-color: rgb(223, 216, 216);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    position: relative; 
+    height: 100vh;
+}
+
+.section1 {
+    background-color: rgb(255, 255, 255);
+    margin: 1em;
+    border-radius: 1em;
+    width: 70%;
+}
+
+/* важливий! */
+.section1 div {
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productDiv {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(211, 203, 203);
+}
+
+.productDiv:nth-child(1) {
+    justify-content: center;
+}
+
+/* .productDiv{
+} */
+
+.productDiv:last-child {
+    border-bottom: none;
+}
+
+.prForm {
+    padding: 2em;
+    display: flex;
+    width: 100%;
+    /* flex-direction: row; */
+}
+
+.section1 div:nth-of-type(1) button {
+    background-color: rgb(65, 154, 232);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border: 2px outset rgb(65, 154, 232);
+    padding: 3%;
+}
+
+#addProductInput {
+    flex: 1;
+}
+
+.section1 div:nth-of-type(2) {
+    justify-content: space-between;
+}
+
+.section1 div p {
+    margin-top: 1.5em;
+    width: 5em;
+    /* text-decoration: line-through; */
+}
+
+#cross {
+    text-decoration: line-through;
+    width: 4.3em;
+}
+
+.section1 span {
+    background-color: lightgray;
+    padding: 0.7em 1em;
+    /* margin-top: 1em;
+    margin-bottom: 1em; */
+    margin: 1em 0em;
+    border-radius: 0.4em;
+}
+
+.sideButtons {
+    padding: 0.4em;
+    margin: 1em 0em;
+    background-color: rgb(211, 211, 211);
+    border: 2px outset rgb(211, 211, 211);
+    border-radius: 0.3em;
+    margin-right: 0.3em;
+}
+
+#sideButton {
+    padding: 0.4em;
+    margin: 1em 0em;
+    background-color: rgb(211, 211, 211);
+    border: 2px outset rgb(211, 211, 211);
+    border-radius: 0.3em;
+    margin-right: 0;
+}
+
+.sideContainer {
+    padding: 0%;
+    display: flex;
+}
+
+.centerContainer {
+    display: flex;
+}
+
+#inputInside {
+    width: 5em;
+}
+
+.roundB {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+}
+
+#buttonMinus {
+    background-color: red;
+    border-color: red;
+    margin-right: 0.2em;
+}
+
+#buttonPlus {
+    background-color: rgb(0, 255, 38);
+    border-color: rgb(0, 255, 38);
+    /* border-radius: 50%;
+    width: 2em;
+    height: 2em; */
+    margin-left: 0.2em;
+}
+
+#buttonX {
+    background-color: red;
+    border-color: red;
+    margin-right: 0;
+    width: 2em;
+    color: white;
+}
+
+.insideSpan {
+    background-color: orange;
+    /* border-radius: 50%;
+    margin-left: 0.4em; */
+    color: white;
+    padding: 0.2em 0.5em;
+    /* margin-top: 1em;
+    margin-bottom: 1em; */
+    margin-left: 0.5em;
+    border-radius: 50%;
+}
+
+#secondSection {
+    background-color: white;
+    width: 25%;
+    border-radius: 1em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#secondSection h3 {
+    /* padding-bottom: 0.8em; */
+    align-items: center;
+    margin-left: 0.7em;
+
+    /* margin: auto; */
+}
+
+#secondSection div {
+    /* padding-left: 1em;
+    padding-top: 1em;
+    flex-direction: row;
+    justify-content: space-between; */
+    border-bottom: 1px solid rgb(211, 203, 203);
+    /* height: 4em; */
+
+    flex: 1 1 50%;
+    /* Це зробить div-и однаковими по ширині і займатимуть половину ширини контейнера. */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    box-sizing: border-box;
+
+    /* display: flex; */
+    /* justify-content: center; Вирівнює контент по горизонталі */
+    /* align-items: center; */
+}
+
+.graySpan {
+    background-color: lightgray;
+    padding: 0.5em 0.6em;
+    margin-left: 0.7em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    /* margin: 0em 1em; */
+    border-radius: 0.4em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-items: center; */
+}
+
+#crossS{
+    text-decoration: line-through;
+}
+
+#lastSpan{
+    text-decoration: line-through white;
+}
+
+.bage{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 1em;
+    padding: 0.2em;
+
+    position: absolute;
+    bottom: -5.5em;
+    left: 3em;
+
+    cursor: pointer; 
+    transition: bottom 0.7s ease ; 
+
+    clip-path: inset(0 0 60% 0); 
+    /* transition: clip-path 2s;  */
+}
+
+.bage:hover{
+    clip-path: inset(0 0 0 0);
+    bottom: -1em;
+    background-color: blue;
+}
+
+
+  
+@media(max-width: 914px) {
+    body {
+        flex-direction: column;
+        height: 100vh;
+    }
+    .productDiv {
+        padding: 0.4em;
+    }
+    #addProductInput {
+        flex: 1;
+    }
+    .prForm {
+        padding: 0.01em;
+    }
+    .section1 {
+        width: 100%;
+        margin: 0.2em;
+    }
+    #secondSection {
+        width: 100%;
+    }
+}
+
+.tooltip-btn, .roundB, .sideButtons {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip-btn::after, .roundB::after, .sideButtons::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 107%;
+    left: 9%;
+    transform: translateX(-50%) scale(0.5);
+    background-color: purple;
+    color: white;
+    padding: 0.3em 0.3em;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    pointer-events: none;
+}
+
+.tooltip-btn:hover::after, .roundB:hover::after, .sideButtons:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/**/
+/**/
+
+@media print {
+    .bage {
+        background-color: #ffffff; 
+        color: #000000; 
+        border: 2px solid rgb(199, 7, 199); 
+        z-index: 900;
+        bottom: 0.1em;
+        clip-path: inset(0 0 0 0); 
+    }
+#firstTitle{
+    display: none;
+}
+
+}
