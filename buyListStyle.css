@@ -25,6 +25,11 @@ body {
     align-items: center;
 }
 
+#addButton:active{
+    background-color: rgba(65, 154, 232, 0.699);
+    border-color: rgba(65, 154, 232, 0.699);
+}
+
 .productDiv {
     padding: 1em;
     display: flex;
@@ -32,6 +37,20 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgb(211, 203, 203);
+}
+
+#sideButton:active, .sideButtons:active{
+    background-color: rgb(151, 151, 151);
+}
+
+#buttonMinus:active, #buttonX:active{
+    background-color: rgba(255, 0, 0, 0.493);
+    border-color: rgba(255, 0, 0, 0.235);
+}
+
+#buttonPlus:active{
+    background-color: rgba(0, 255, 38, 0.541);
+    border-color: rgba(0, 255, 38, 0.541);
 }
 
 .productDiv:nth-child(1) {
@@ -239,8 +258,8 @@ body {
 
 .bage:hover{
     clip-path: inset(0 0 0 0);
-    bottom: -1em;
-    background-color: blue;
+    bottom: -0.2em;
+    background-color:rgb(255, 196, 0);
 }
 
 
