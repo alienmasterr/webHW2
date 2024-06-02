@@ -17,6 +17,13 @@ addButton.addEventListener('click', function (e) {
         productToBuy.appendChild(insideSpan); // Додаємо внутрішній span знову
         insideSpan.textContent = oldInsideText; // старий вміст внутрішнього span
 
+        const productBought = document.querySelector('.productBought' + (productsNum+1));
+        const insideSpan2 = productBought.querySelector('.insideSpan');
+        const oldInsideText2 = insideSpan2.textContent; // старий вміст внутрішнього span
+        productBought.textContent = newProductName;
+        productBought.appendChild(insideSpan2); // Додаємо внутрішній span знову
+        insideSpan2.textContent = oldInsideText2;
+
         productsOnTheList[productsNum].textContent = newProductName;
         productsNum--;
         addProductInput.focus();
