@@ -20,9 +20,9 @@ addButton.addEventListener('click', function (e) {
 
         const productBought = document.querySelector('.productBought' + (productsNum+1));
         const insideSpan2 = productBought.querySelector('.insideSpan');
-        const oldInsideText2 = insideSpan2.textContent; // старий вміст внутрішнього span
+        const oldInsideText2 = insideSpan2.textContent; 
         productBought.textContent = newProductName;
-        productBought.appendChild(insideSpan2); // Додаємо внутрішній span знову
+        productBought.appendChild(insideSpan2);
         insideSpan2.textContent = oldInsideText2;
 
         productsOnTheList[productsNum].textContent = newProductName;
@@ -131,7 +131,6 @@ const toggleProductState = function (button) {
     const boughtItems = boughtProductList.querySelectorAll(".bought");
     if (button.classList.contains('toBuy')) {
         // Зміна на куплений
-        // const productToBuyName = p.textContent;
         p.classList.add("crossed");
         centerContainer.classList.add("noDisplay");
         localX.classList.add("noDisplay");
