@@ -2,7 +2,6 @@ const addProductInput = document.querySelector('#addProductInput');
 const addButton = document.querySelector('#addButton');
 const productsOnTheList = document.querySelectorAll('.productNames')
 const form = document.querySelector("form");
-// const deleteProductButton1 = document.querySelector('.buttonX1');
 const leftProducts = document.querySelectorAll(".left");
 
 let productsNum = 2;
@@ -52,104 +51,6 @@ const deleteProduct = function (button) {
     }
 };
 
-// const buttons = document.querySelectorAll(".roundB");
-// buttons.forEach(button => {
-//     button.addEventListener('click', function () {
-//         adjustProductQty(this);
-//     });
-// });
-
-// const adjustProductQty = function (button) {
-//     const productDiv = button.closest('.productDiv');
-//     const qtySpan = productDiv.querySelector(".qty");
-//     const operation = button.dataset.operation;
-//     const minusButton = productDiv.querySelector("#buttonMinus");
-//     const p = productDiv.querySelector('p');
-
-//     // const centerContainer = productDiv.querySelector(".centerContainer");
-//     // const spanInside = centerContainer.querySelector("span"); // або ".insideSpan", якщо клас вказаний у спані
-//     // const textContentOfSpanInside = parseInt(spanInside.textContent);
-
-//     let currentQty = parseInt(qtySpan.innerText);
-
-
-//     if (operation === "plus") {
-//         currentQty += 1;
-//         if (currentQty > 1) {
-//             minusButton.classList.remove("noDisplay")
-//         }
-//     } else if (operation === "minus") {
-//         currentQty -= 1;
-//         if (currentQty <= 1) {
-//             minusButton.classList.add("noDisplay")
-//         }
-//     }
-
-//     qtySpan.textContent = currentQty;
-//     const productToBuyName = p.textContent;
-
-//     for (let left of leftProducts) {
-//         let textOfLeft = left.textContent;
-//         if (textOfLeft.includes(productToBuyName)) {
-//             //міняємо внутрішній спан
-//             const spanInside = left.querySelector(".insideSpan");
-//             spanInside.textContent = currentQty.toString();
-//         }
-//     }
-// };
-
-// const toBuyButtons = document.querySelectorAll('.toBuy');
-// toBuyButtons.forEach(button => {
-//     button.addEventListener('click', function () {
-//         toggleProductState(this);
-//     });
-// });
-// const toggleProductState = function (button) {
-//     const productDiv = button.closest('.productDiv'); // Find the closest parent div with class 'productDiv'
-//     const p = productDiv.querySelector('p');
-//     const centerContainer = productDiv.querySelector(".centerContainer");
-//     const localX = productDiv.querySelector("#buttonX");
-//     const spanInside = centerContainer.querySelector("span"); // або ".insideSpan", якщо клас вказаний у спані
-//     const textContentOfSpanInside = parseInt(spanInside.textContent);
-
-//     if (button.classList.contains('toBuy')) {
-//         // Change to bought
-//         const productToBuyName = p.textContent;
-//         p.classList.add("crossed");
-//         centerContainer.classList.add("noDisplay");
-
-//         localX.classList.add("noDisplay");
-//         button.classList.remove("toBuy");
-//         button.classList.add("makeNotBought");
-//         button.textContent = "Скасувати";
-
-//         for (let left of leftProducts) {
-//             let textOfLeft = left.textContent;
-//             if (textOfLeft.includes(productToBuyName)) {
-//                 const boughtProductList = document.querySelector(".boughtProductList");
-//                 const newHTML = `<span id="crossS" class="graySpan">${productToBuyName}<span id="lastSpan" class="insideSpan">${textContentOfSpanInside}</span></span>`;
-//                 boughtProductList.insertAdjacentHTML('beforeend', newHTML);
-//                 left.classList.add("noDisplayReal");
-//             }
-//         }
-//         // Disable editing
-//         p.removeEventListener('click', editProductName);
-//     } else if (button.classList.contains('makeNotBought')) {
-//         // Change to not bought
-//         p.classList.remove("crossed");
-//         centerContainer.classList.remove("noDisplay");
-//         localX.classList.remove("noDisplay");
-//         button.classList.remove("makeNotBought");
-//         button.classList.add("toBuy");
-//         button.textContent = "Придбати";
-
-//         // Enable editing
-//         p.addEventListener('click', editProductName);
-//     }
-
-// };
-
-// Додаємо обробники подій до кнопок зміни кількості
 const buttons = document.querySelectorAll(".roundB");
 buttons.forEach(button => {
     button.addEventListener('click', function () {
@@ -157,14 +58,13 @@ buttons.forEach(button => {
     });
 });
 
-// Функція для зміни кількості товару
 const adjustProductQty = function (button) {
     const productDiv = button.closest('.productDiv');
     const qtySpan = productDiv.querySelector(".qty");
     const operation = button.dataset.operation;
     const minusButton = productDiv.querySelector("#buttonMinus");
     const p = productDiv.querySelector('p');
-    
+
     let currentQty = parseInt(qtySpan.innerText);
 
     if (operation === "plus") {
@@ -181,9 +81,9 @@ const adjustProductQty = function (button) {
 
     qtySpan.textContent = currentQty;
 
-    // Оновлюємо кількість у відповідному елементі списку
     const productToBuyName = p.textContent;
     const leftProducts = document.querySelectorAll(".left");
+    const boughtProducts = document.querySelectorAll(".bought");
     for (let left of leftProducts) {
         let textOfLeft = left.textContent;
         if (textOfLeft.includes(productToBuyName)) {
@@ -191,9 +91,17 @@ const adjustProductQty = function (button) {
             spanInside.textContent = currentQty.toString();
         }
     }
+    
+    for (let bought of boughtProducts) {
+        let textOfBought = bought.textContent;
+        if (textOfBought.includes(productToBuyName)) {
+            const spanInside = bought.querySelector(".insideSpan");
+            spanInside.textContent = currentQty.toString();
+        }
+    }
+
 };
 
-// Додаємо обробники подій до кнопок зміни стану товару
 const toBuyButtons = document.querySelectorAll('.toBuy');
 toBuyButtons.forEach(button => {
     button.addEventListener('click', function () {
@@ -201,7 +109,6 @@ toBuyButtons.forEach(button => {
     });
 });
 
-// Функція для зміни стану товару (куплений/некуплений)
 const toggleProductState = function (button) {
     const productDiv = button.closest('.productDiv');
     const p = productDiv.querySelector('p');
@@ -214,6 +121,8 @@ const toggleProductState = function (button) {
     const boughtProductList = document.querySelector(".boughtProductList");
     const notBoughtProductList = document.querySelector(".notBoughtProductList");
 
+    const leftProducts = document.querySelectorAll(".left");
+    const boughtItems = boughtProductList.querySelectorAll(".bought");
     if (button.classList.contains('toBuy')) {
         // Зміна на куплений
         // const productToBuyName = p.textContent;
@@ -224,15 +133,17 @@ const toggleProductState = function (button) {
         button.classList.add("makeNotBought");
         button.textContent = "Скасувати";
 
-        const leftProducts = document.querySelectorAll(".left");
+        
         for (let left of leftProducts) {
-            let textOfLeft = left.textContent;
-            if (textOfLeft.includes(productToBuyName)) {
-                
-                const boughtProductList = document.querySelector(".boughtProductList");
-                const newHTML = `<span id="crossS" class="graySpan">${productToBuyName}<span id="lastSpan" class="insideSpan">${textContentOfSpanInside}</span></span>`;
-                boughtProductList.insertAdjacentHTML('beforeend', newHTML);
-                left.classList.add("noDisplayReal");
+            for (let item of boughtItems) {
+                let textOfLeft = left.textContent;
+                let textOfBought = item.textContent;
+                if (textOfLeft.includes(productToBuyName)) {
+                    left.classList.add("noDisplayReal");
+                }
+                if (textOfBought.includes(productToBuyName)) {
+                    item.classList.remove("noDisplayReal");
+                }
             }
         }
         p.removeEventListener('click', editProductName); // Забороняємо редагування
@@ -245,22 +156,32 @@ const toggleProductState = function (button) {
         button.classList.add("toBuy");
         button.textContent = "Придбати";
 
-        // Знаходимо відповідний елемент у списку куплених продуктів та видаляємо його
-        const boughtItems = boughtProductList.querySelectorAll(".graySpan");
-        for (let item of boughtItems) {
-            if (item.textContent.includes(productToBuyName)) {
-                item.remove();
-                break;
+        for (let left of leftProducts) {
+            for (let item of boughtItems) {
+                let textOfLeft = left.textContent;
+                let textOfBought = item.textContent;
+                if (textOfLeft.includes(productToBuyName)) {
+                    left.classList.remove("noDisplayReal");
+                }
+                if (textOfBought.includes(productToBuyName)) {
+                    item.classList.add("noDisplayReal");
+                }
             }
         }
 
-        // Додаємо елемент назад до списку продуктів, які потрібно купити
-        const newHTML = `<span class="graySpan left">${productToBuyName}<span class="insideSpan">${textContentOfSpanInside}</span></span>`;
-        notBoughtProductList.insertAdjacentHTML('beforeend', newHTML);
-        
+        // for (let item of boughtItems) {
+        //     let textOfBought = item.textContent;
+        //     if (textOfBought.includes(productToBuyName)) {
+        //         item.classList.add("noDisplayReal");
+        //     }
+        // }
+
+        // const newHTML = `<span class="graySpan left">${productToBuyName}<span class="insideSpan">${textContentOfSpanInside}</span></span>`;
+        // notBoughtProductList.insertAdjacentHTML('beforeend', newHTML);
+
         p.addEventListener('click', editProductName); // Дозволяємо редагування
 
-    
+
     }
 };
 
