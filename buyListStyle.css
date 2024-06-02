@@ -273,12 +273,12 @@ body {
 .crossed{
     text-decoration: line-through;
 }
-.makeNotBought{
+/* .makeNotBought{
     
-}
+} */
 
   
-@media(max-width: 914px) {
+@media(max-width: 1110px) {
     body {
         flex-direction: column;
         height: 100vh;

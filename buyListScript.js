@@ -1,3 +1,4 @@
+
 const addProductInput = document.querySelector('#addProductInput');
 const addButton = document.querySelector('#addButton');
 const productsOnTheList = document.querySelectorAll('.productNames')
@@ -122,11 +123,9 @@ const toggleProductState = function (button) {
     const centerContainer = productDiv.querySelector(".centerContainer");
     const localX = productDiv.querySelector("#buttonX");
     const qtySpan = productDiv.querySelector(".qty");
-    const textContentOfSpanInside = qtySpan.textContent; // Отримуємо кількість з елемента кількості
 
     const productToBuyName = p.textContent;
     const boughtProductList = document.querySelector(".boughtProductList");
-    const notBoughtProductList = document.querySelector(".notBoughtProductList");
 
     const leftProducts = document.querySelectorAll(".left");
     const boughtItems = boughtProductList.querySelectorAll(".bought");
@@ -155,7 +154,7 @@ const toggleProductState = function (button) {
         }
         p.removeEventListener('click', editProductName); // Забороняємо редагування
     } else if (button.classList.contains('makeNotBought')) {
-        // Зміна на некоплений
+        // Зміна на некуплений
         p.classList.remove("crossed");
         centerContainer.classList.remove("noDisplay");
         localX.classList.remove("noDisplay");
@@ -176,22 +175,11 @@ const toggleProductState = function (button) {
             }
         }
 
-        // for (let item of boughtItems) {
-        //     let textOfBought = item.textContent;
-        //     if (textOfBought.includes(productToBuyName)) {
-        //         item.classList.add("noDisplayReal");
-        //     }
-        // }
-
-        // const newHTML = `<span class="graySpan left">${productToBuyName}<span class="insideSpan">${textContentOfSpanInside}</span></span>`;
-        // notBoughtProductList.insertAdjacentHTML('beforeend', newHTML);
-
         p.addEventListener('click', editProductName); // Дозволяємо редагування
 
 
     }
 };
-
 
 const productNames = document.querySelectorAll('.productNames');
 productNames.forEach(name => {
@@ -223,9 +211,4 @@ const editProductName = function (element) {
     });
 };
 
-/*
-натискаємо *купити* -- зникає червона кнопка х, міняємо текст на Зробити не купленим + міняємо клас, назву товару перекреслююємо, прибираємо кнопки + -
-*/
-/*
-натискаємо х -- зникає назва товару, кількість на 0
-*/
+
