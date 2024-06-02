@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <section class="section1">
         <div class="productDiv">
             <form class="prForm" action="/smth">
@@ -18,35 +18,49 @@
             </form>
         </div>
         <div class="productDiv">
-            <p id="cross">Помідори</p>
+            <p class="productNames notBought">Помідори</p>
+            <div class="centerContainer">
+                <button class="roundB noDisplay" id="buttonMinus" data-tooltip="Видалити товар"
+                    data-operation="minus">-</button>
+                <span class='qty'>1</span>
+                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар" data-operation="plus">+</button>
+            </div>
+            <div class="sideContainer">
+                <button class="sideButtons toBuy" data-tooltip="Товар куплено" class="tooltip-btn">Придбати</button>
+                <button class="sideButtons" id="buttonX" data-tooltip="Скасувати">x</button>
+            </div>
+            <!-- <p class="productNames" id="cross">Помідори</p>
             <span>2</span>
-            <button id="sideButton" class="tooltip-btn" data-tooltip="Товар не куплено">Не куплено</button>
+            <button id="sideButton" class="tooltip-btn" data-tooltip="Товар не куплено">Не куплено</button> -->
         </div>
 
         <div class="productDiv">
-            <p>Печиво</p>
+            <p class="productNames notBought">Печиво</p>
             <div class="centerContainer">
-                <button class="roundB" id="buttonMinus" data-tooltip="Видалити товар">-</button>
-                <span>2</span>
-                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар">+</button>
+                <button class="roundB noDisplay" id="buttonMinus" data-tooltip="Видалити товар"
+                    data-operation="minus">-</button>
+                <span class='qty'>1</span>
+                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар" data-operation="plus">+</button>
             </div>
             <div class="sideContainer">
-                <button class="sideButtons" data-tooltip="Товар куплено" class="tooltip-btn">Куплено</button>
-                <button class="sideButtons" id="buttonX" data-tooltip="Скасувати">x</button>
+                <button class="sideButtons toBuy" data-tooltip="Товар куплено" class="tooltip-btn">Придбати</button>
+                <button class="sideButtons buttonX2" id="buttonX" data-tooltip="Скасувати">x</button>
             </div>
 
         </div>
 
         <div class="productDiv">
-            <input type="text" name="inputInside" id="inputInside">
+            <!-- <input type="text" name="inputInside" id="inputInside"> -->
+            <p class="productNames notBought">Сир</p>
             <div class="centerContainer">
-                <button class="roundB" id="buttonMinus" data-tooltip="Видалити товар">-</button>
-                <span>2</span>
-                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар">+</button>
+                <button class="roundB noDisplay" id="buttonMinus" data-tooltip="Видалити товар"
+                    data-operation="minus">-</button>
+                <span class='qty'>1</span>
+                <button class="roundB" id="buttonPlus" data-tooltip="Додати товар" data-operation="plus">+</button>
             </div>
             <div class="sideContainer">
-                <button class="sideButtons" data-tooltip="Товар куплено">Куплено</button>
-                <button class="sideButtons" id="buttonX" data-tooltip="Скасувати">x</button>
+                <button class="sideButtons toBuy" data-tooltip="Товар куплено">Придбати</button>
+                <button class="sideButtons buttonX3" id="buttonX" data-tooltip="Скасувати">x</button>
             </div>
 
         </div>
@@ -57,14 +71,19 @@
         <div>
             <h3>Залишилося</h3>
         </div>
-        <div>
-            <span class="graySpan">Печиво<span class="insideSpan">2</span></span>
-            <span class="graySpan">Сир<span class="insideSpan">1</span></span>
+        <div class="notBoughtProductList">
+            <span class="graySpan left productToBuy1">Помідори<span class="insideSpan">1</span></span>
+            <span class="graySpan left productToBuy2">Печиво<span class="insideSpan">1</span></span>
+            <span class="graySpan left productToBuy3">Сир<span class="insideSpan">1</span></span>
+        </div>
+
         </div>
         <div>
             <h3>Куплено</h3>
         </div>
-        <div><span id="crossS" class="graySpan">Помідори<span id="lastSpan" class="insideSpan">2</span></span></div>
+        <div class="boughtProductList">
+            <!-- <span id="crossS" class="graySpan">Помідори<span id="lastSpan" class="insideSpan">2</span></span> -->
+        </div>
     </section>
 
     <div class="bage">
@@ -73,6 +92,8 @@
         <!-- <p>Created by:</p> -->
         <p>Alina Kharchenko</p>
     </div>
+
+    <script src="buyListScript.js"></script>
 </body>
 
 </html>

@@ -245,9 +245,9 @@ body {
     border-radius: 1em;
     padding: 0.2em;
 
-    position: absolute;
+    position: fixed;
     bottom: -5.5em;
-    left: 3em;
+    right: 3em;
 
     cursor: pointer; 
     transition: bottom 0.7s ease ; 
@@ -262,6 +262,20 @@ body {
     background-color:rgb(255, 196, 0);
 }
 
+.noDisplay{
+    visibility: hidden;
+}
+
+.noDisplayReal{
+    display: none;
+}
+
+.crossed{
+    text-decoration: line-through;
+}
+.makeNotBought{
+    
+}
 
   
 @media(max-width: 914px) {
@@ -291,6 +305,8 @@ body {
     position: relative;
     cursor: pointer;
 }
+
+/* creates a pseudo-element that is the last child of the selected element */
 
 .tooltip-btn::after, .roundB::after, .sideButtons::after {
     content: attr(data-tooltip);
