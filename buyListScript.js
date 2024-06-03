@@ -203,6 +203,9 @@ const editProductName = function (element) {
     }
 
     // element.textContent = '';
+    const leftPr = document.querySelectorAll(".left");
+    const boughtPr = document.querySelectorAll(".bought");
+    const oldT = element.textContent;
 
     const input = document.createElement('input');
     input.type = 'text';
@@ -215,7 +218,44 @@ const editProductName = function (element) {
         const newText = input.value.trim();
         if (newText) {
             element.textContent = newText;
-        }
+
+        //     for (let l of leftPr) {
+        //         for (b of boughtPr) {
+        //             if (l.textContent.includes(oldT)) {
+        //                 l.textContent = newText;
+
+        //                 const insideSpan = l.querySelector('.insideSpan');
+        //                 const oldInsideText = insideSpan.textContent;
+        //                 // productToBuy.textContent = newProductName;
+        //                 l.appendChild(insideSpan);
+        //                 insideSpan.textContent = oldInsideText;
+
+        //                 break;
+        //             }
+        //             if (b.textContent.includes(oldT)) {
+        //                 b.textContent = newText;
+        //                 break;
+        //             }
+        //         }
+        //     }
+
+        // }
+        leftPr.forEach(l => {
+            const insideSpan = l.querySelector('.insideSpan');
+            const mainText = l.textContent.replace(insideSpan.textContent, '').trim();
+            if (mainText === oldT) {
+                l.childNodes[0].textContent = newText; //+ insideSpan.textContent;
+            }
+        });
+
+        boughtPr.forEach(b => {
+            const insideSpan = b.querySelector('.insideSpan');
+            const mainText = b.textContent.replace(insideSpan.textContent, '').trim();
+            if (mainText === oldT) {
+                b.childNodes[0].textContent = newText; //+ insideSpan.textContent;
+            }
+        });
+    }
         input.replaceWith(element);
     });
 };
