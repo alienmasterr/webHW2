@@ -1,4 +1,3 @@
-
 const addProductInput = document.querySelector('#addProductInput');
 const addButton = document.querySelector('#addButton');
 const productsOnTheList = document.querySelectorAll('.productNames')
@@ -9,26 +8,37 @@ let productsNum = 2;
 addButton.addEventListener('click', function (e) {
     e.preventDefault();
     if (productsNum >= 0) {
-        const newProductName = addProductInput.value;
 
-        const productToBuy = document.querySelector('.productToBuy' + (productsNum + 1));
-        const insideSpan = productToBuy.querySelector('.insideSpan');
-        const oldInsideText = insideSpan.textContent; // старий вміст внутрішнього span
-        productToBuy.textContent = newProductName;
-        productToBuy.appendChild(insideSpan); // Додаємо внутрішній span знову
-        insideSpan.textContent = oldInsideText; // старий вміст внутрішнього span
+        const newProductName = addProductInput.value.toLowerCase();
+        for (const pr of productsOnTheList) {
+            if (pr.textContent === newProductName) {
+                addProductInput.focus();
+                form.reset();
+                break;
+            } else {
 
-        const productBought = document.querySelector('.productBought' + (productsNum+1));
-        const insideSpan2 = productBought.querySelector('.insideSpan');
-        const oldInsideText2 = insideSpan2.textContent; 
-        productBought.textContent = newProductName;
-        productBought.appendChild(insideSpan2);
-        insideSpan2.textContent = oldInsideText2;
+                const productToBuy = document.querySelector('.productToBuy' + (productsNum + 1));
+                const insideSpan = productToBuy.querySelector('.insideSpan');
+                const oldInsideText = insideSpan.textContent;
+                productToBuy.textContent = newProductName;
+                productToBuy.appendChild(insideSpan);
+                insideSpan.textContent = oldInsideText;
 
-        productsOnTheList[productsNum].textContent = newProductName;
-        productsNum--;
-        addProductInput.focus();
-        form.reset();
+                const productBought = document.querySelector('.productBought' + (productsNum + 1));
+                const insideSpan2 = productBought.querySelector('.insideSpan');
+                const oldInsideText2 = insideSpan2.textContent;
+                productBought.textContent = newProductName;
+                productBought.appendChild(insideSpan2);
+                insideSpan2.textContent = oldInsideText2;
+
+                productsOnTheList[productsNum].textContent = newProductName;
+                productsNum--;
+
+                addProductInput.focus();
+                form.reset();
+                break;
+            }
+        }
     } else {
         alert("Четвертий товар додати не можна")
     }
@@ -99,7 +109,7 @@ const adjustProductQty = function (button) {
             spanInside.textContent = currentQty.toString();
         }
     }
-    
+
     for (let bought of boughtProducts) {
         let textOfBought = bought.textContent;
         if (textOfBought.includes(productToBuyName)) {
@@ -138,7 +148,7 @@ const toggleProductState = function (button) {
         button.classList.add("makeNotBought");
         button.textContent = "Скасувати";
 
-        
+
         for (let left of leftProducts) {
             for (let item of boughtItems) {
                 let textOfLeft = left.textContent;
